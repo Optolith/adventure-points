@@ -89,10 +89,14 @@ export const getAdventurePointsForRatingRange = (
     throw new RangeError("Adventure points are not defined for negative ratings.")
   }
 
+  if (from === to) {
+    return 0
+  }
+
   const base = getBase(improvementCost)
   const lastRatingOfSameValue = getLastRatingOfConstantValue(improvementCost)
 
-  const [min, max, negate] = from <= to ? [from, to, false] : [to, from, true]
+  const [min, max, negate] = from < to ? [from, to, false] : [to, from, true]
 
   const size = max - min
   const constantRangeSize = Math.min(size, lastRatingOfSameValue - min)
@@ -103,6 +107,5 @@ export const getAdventurePointsForRatingRange = (
 
   const totalCost = constantCost + variableCost
 
-  // checking totalCost > 0 to avoid returning -0
-  return totalCost * (negate && totalCost > 0 ? -1 : 1)
+  return totalCost * (negate ? -1 : 1)
 }

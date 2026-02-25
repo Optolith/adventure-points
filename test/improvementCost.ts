@@ -1,4 +1,4 @@
-import { equal } from "node:assert/strict"
+import { equal, throws } from "node:assert/strict"
 import { describe, it } from "node:test"
 import {
   getAdventurePointsForActivation,
@@ -35,6 +35,10 @@ describe("getAdventurePointsForRating", () => {
     equal(getAdventurePointsForRating("E", 15), 30)
     equal(getAdventurePointsForRating("E", 16), 45)
   })
+
+  it("throws a RangeError for negative ratings", () => {
+    throws(() => getAdventurePointsForRating("A", -1), RangeError)
+  })
 })
 
 describe("getAdventurePointsForRatingRange", () => {
@@ -59,5 +63,10 @@ describe("getAdventurePointsForRatingRange", () => {
     equal(getAdventurePointsForRatingRange("A", 15, 1), -20)
     equal(getAdventurePointsForRatingRange("D", 15, 1), -80)
     equal(getAdventurePointsForRatingRange("E", 16, 1), -270)
+  })
+
+  it("throws a RangeError for negative ratings", () => {
+    throws(() => getAdventurePointsForRatingRange("A", -1, 2), RangeError)
+    throws(() => getAdventurePointsForRatingRange("A", 1, -2), RangeError)
   })
 })

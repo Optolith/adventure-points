@@ -50,6 +50,7 @@ export const getAdventurePointsForActivation = (improvementCost: ImprovementCost
  *
  * This only calculates a single step. To calculate the sum of adventure points for going from and to an arbitrary rating, use {@link calculateAdventurePointsFromImprovementCost} with a rating range.
  *
+ * @throws {RangeError} if the rating is negative, since adventure points are not defined for negative ratings.
  * @example
  * getAdventurePointsForRating("A", 1) // returns 1
  * getAdventurePointsForRating("A", 12) // returns 1
@@ -60,6 +61,10 @@ export const getAdventurePointsForRating = (
   improvementCost: ImprovementCost,
   rating: number,
 ): number => {
+  if (rating < 0) {
+    throw new RangeError("Adventure points are not defined for negative ratings.")
+  }
+
   const base = getBase(improvementCost)
   const lastRatingOfSameValue = getLastRatingOfConstantValue(improvementCost)
 
@@ -73,12 +78,17 @@ export const getAdventurePointsForRating = (
  * @param from The source rating to increment from.
  * @param to The target rating to increment to.
  * @returns The change in spent adventure points when changing the rating from the source rating to the target rating.
+ * @throws {RangeError} if at least one of the given ratings is negative, since adventure points are not defined for negative ratings.
  */
 export const getAdventurePointsForRatingRange = (
   improvementCost: ImprovementCost,
   from: number,
   to: number,
 ): number => {
+  if (from < 0 || to < 0) {
+    throw new RangeError("Adventure points are not defined for negative ratings.")
+  }
+
   const base = getBase(improvementCost)
   const lastRatingOfSameValue = getLastRatingOfConstantValue(improvementCost)
 

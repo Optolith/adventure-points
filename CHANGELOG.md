@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.1](https://github.com/Optolith/adventure-points/compare/v0.1.0...v0.1.1) (2026-02-25)
+
+
+### Features
+
+* throw on negative ratings ([31247de](https://github.com/Optolith/adventure-points/commit/31247de30b992c15c5d2e2abbac027dbc155acd2))
+
 ## 0.1.0 (2026-02-25)
 
 

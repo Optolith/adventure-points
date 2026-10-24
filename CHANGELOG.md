@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/Optolith/adventure-points/compare/v0.1.1...v0.1.2) (2026-10-24)
+
+### Features
+
+* activatable AP value calculation ([539d35f](https://github.com/Optolith/adventure-points/commit/539d35f094789796eb0b229147441e5ca4992d9b))
+
 ## [0.1.1](https://github.com/Optolith/adventure-points/compare/v0.1.0...v0.1.1) (2026-02-25)
 
 

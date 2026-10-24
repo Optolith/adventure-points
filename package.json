@@ -10,6 +10,7 @@
   ],
   "main": "dist/src/index.js",
   "exports": {
+    "./activatable": "./dist/src/activatable.js",
     "./improvement-cost": "./dist/src/improvementCost.js"
   },
   "scripts": {
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@elyukai/oxc-config": "^0.1.2",
+    "@optolith/database-schema": "^0.111.1",
     "@types/node": "^26.6.5",
     "commit-and-tag-version": "^13.3.0",
     "oxfmt": "^0.72.0",
@@ -40,7 +42,7 @@
     "@elyukai/utils": "^0.3.11"
   },
   "allowScripts": {
-    "esbuild@0.27.3": true,
-    "fsevents@2.3.3": true
+    "fsevents@2.3.3": true,
+    "esbuild@0.28.2": true
   }
 }

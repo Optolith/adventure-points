@@ -1,6 +1,38 @@
+import { on } from "@elyukai/utils/function"
+import { compareNumber, type Compare } from "@elyukai/utils/ordering"
 import { assertExhaustive } from "@elyukai/utils/typeSafety"
 
 export type ImprovementCost = "A" | "B" | "C" | "D" | "E"
+
+/**
+ * Returns a linear numeric representation of an improvement cost, where "A" is 1 and "E" is 5.
+ *
+ * This can be used for ordering improvement costs as well as other applications where a linear numeric representation is needed.
+ */
+export const improvementCostToLinearNumber = (improvementCost: ImprovementCost): number => {
+  switch (improvementCost) {
+    case "A":
+      return 1
+    case "B":
+      return 2
+    case "C":
+      return 3
+    case "D":
+      return 4
+    case "E":
+      return 5
+    default:
+      return assertExhaustive(improvementCost)
+  }
+}
+
+/**
+ * A comparison function for improvement costs, where "A" is the lowest and "E" is the highest.
+ */
+export const compareImprovementCost: Compare<ImprovementCost> = on(
+  improvementCostToLinearNumber,
+  compareNumber,
+)
 
 /**
  * Returns the base adventure points for an improvement cost. This may be multiplied by a factor for higher ratings.

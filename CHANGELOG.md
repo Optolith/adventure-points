@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/Optolith/adventure-points/compare/v0.1.2...v0.1.3) (2026-10-26)
+
+### Features
+
+* **ic:** add comparison and linear number conversion functions ([22075f7](https://github.com/Optolith/adventure-points/commit/22075f76303ff6ce7b89dfbca60df72ecdc7f312))
+
 ## [0.1.2](https://github.com/Optolith/adventure-points/compare/v0.1.1...v0.1.2) (2026-10-24)
 
 ### Features
